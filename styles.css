@@ -1,0 +1,373 @@
+/* SocraTask landing — same tokens as the app. No frameworks, no gradients,
+   no purple, no glass. Cream paper, ink text, one eco accent. */
+
+:root {
+  --paper: #faf6ed;
+  --surface: #fffdf7;
+  --ink: #1d1a13;
+  --ink-soft: #6f675a;
+  --eco: #55825c;
+  --eco-deep: #40663f;
+  --line: #e4dcc9;
+  --flame: #ef6c00;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* ---------- top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 14px 28px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.wordmark {
+  font-family: Chango, sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  color: var(--eco);
+  letter-spacing: 0.5px;
+}
+
+.wordmark.small { font-size: 17px; }
+
+.topbar nav { display: flex; gap: 22px; }
+
+.topbar nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.topbar nav a:hover { color: var(--ink); }
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-block;
+  white-space: nowrap;
+  background: var(--eco);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 11px 24px;
+}
+
+.btn:hover { background: var(--eco-deep); }
+
+.btn.big { font-size: 17px; padding: 14px 32px; }
+
+.btn.cream { background: var(--paper); color: var(--eco-deep); }
+
+.btn.cream:hover { background: #fff; }
+
+.ghostlink {
+  color: var(--eco-deep);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 2px;
+}
+
+.ghostlink:hover { border-color: var(--eco); }
+
+/* ---------- hero (left aligned, no blob) ---------- */
+
+main { display: block; }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 48px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 72px 28px 64px;
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--eco);
+  margin: 0 0 14px;
+}
+
+.kicker.light { color: #dcead9; }
+
+h1, h2 { line-height: 1.12; margin: 0 0 16px; text-wrap: balance; }
+
+.hero h1 {
+  font-family: Chango, sans-serif;
+  font-weight: 400;
+  font-size: clamp(38px, 5.4vw, 62px);
+}
+
+.lede { font-size: 19px; color: var(--ink-soft); max-width: 34em; }
+
+.lede em { color: var(--ink); font-style: normal; font-weight: 700; }
+
+.ctas { display: flex; align-items: center; gap: 22px; margin-top: 28px; flex-wrap: wrap; }
+
+/* ---------- hand-built product mock ---------- */
+
+.heromock { min-width: 0; }
+
+.mockcard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: 0 18px 44px rgba(64, 70, 50, 0.12);
+}
+
+.mockhead { font-weight: 800; font-size: 15px; margin: 0 0 12px; }
+
+.flame { color: var(--flame); display: inline-flex; }
+
+.fl { width: 15px; height: 15px; }
+
+.chain .fl { width: 13px; height: 13px; }
+
+.pill {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 1px 9px;
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.slot {
+  border: 1.5px dashed var(--line);
+  border-radius: 12px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.slot.filled { border-style: solid; border-color: var(--eco); }
+
+.slot strong { font-size: 11px; color: var(--ink); }
+
+.ava {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--eco);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ava.you { background: var(--ink); }
+
+.chain { color: var(--flame); font-weight: 800; font-size: 13px; display: inline-flex; align-items: center; gap: 3px; }
+
+.mockfoot { font-size: 13px; color: var(--ink-soft); margin: 12px 0 0; }
+
+.mockfoot strong { color: var(--ink); }
+
+/* ---------- feature rows (asymmetric, alternating) ---------- */
+
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 56px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.feature.flip .fcopy { order: 2; }
+
+.feature h2 { font-size: clamp(26px, 3vw, 36px); }
+
+.feature p { color: var(--ink-soft); max-width: 32em; }
+
+.mockcard.narrow { max-width: 340px; }
+
+.questbar {
+  height: 8px;
+  border-radius: 999px;
+  background: #eee7d3;
+  overflow: hidden;
+  margin: 4px 0 6px;
+}
+
+.questbar span { display: block; height: 100%; background: var(--eco); }
+
+.board { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.board li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.board .xp { margin-left: auto; font-weight: 400; color: var(--ink-soft); font-size: 13px; }
+
+.flash .cardq { font-weight: 700; font-size: 18px; margin: 6px 0 14px; }
+
+.opts { display: flex; gap: 8px; margin-bottom: 14px; }
+
+.opts span {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+.grade span {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: #f1ebdb;
+  border-radius: 10px;
+  padding: 9px 4px;
+}
+
+.grade .good { background: var(--eco); color: #fff; }
+
+.chat .bubble {
+  max-width: 85%;
+  width: fit-content;
+  border-radius: 16px;
+  padding: 9px 14px;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.chat .them { background: #f1ebdb; border-radius: 16px 16px 16px 4px; }
+
+.chat .me {
+  background: var(--eco);
+  color: #fff;
+  border-radius: 16px 16px 4px 16px;
+  margin-left: auto;
+}
+
+/* ---------- beta band (solid eco, no gradient) ---------- */
+
+.beta {
+  background: var(--eco);
+  color: #fff;
+  margin-top: 40px;
+}
+
+.betacopy {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 28px;
+}
+
+.beta h2 { font-size: clamp(28px, 3.4vw, 40px); }
+
+.beta p { color: #e9f1e4; }
+
+.betalist { list-style: none; margin: 20px 0 30px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+.betalist li { padding-left: 26px; position: relative; }
+
+.betalist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 26px 28px 40px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+footer p { margin: 0 0 0 auto; }
+
+/* ---------- scroll reveal (subtle, off with reduced motion) ---------- */
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 860px) {
+  .hero, .feature { grid-template-columns: 1fr; gap: 32px; padding-left: 20px; padding-right: 20px; }
+  .feature.flip .fcopy { order: 0; }
+  .topbar nav { display: none; }
+  .topbar { padding: 12px 18px; }
+  .slots { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .slots { gap: 5px; }
+  .slot strong { display: none; }
+}
