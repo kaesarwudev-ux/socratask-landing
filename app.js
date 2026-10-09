@@ -71,9 +71,12 @@
 
   var els = document.querySelectorAll('.hero, .feature, .beta .betacopy, .indexsec, .minicta, .pager');
   function dropKids(el) {
-    var kids = el.querySelectorAll(
-      '.herocopy > *, .heromock > *, .fcopy > *, .fmock > *, .betacopy > *, .minicta > *, .indexcard'
-    );
+    // Interactive elements keep their own hover transitions: never let
+    // .drop steal them (a later equal-specificity rule would win).
+    var sel = '.herocopy > *:not(.btn):not(a), .heromock > *, ' +
+      '.fcopy > *:not(.btn):not(a), .fmock > *, ' +
+      '.betacopy > *:not(.btn):not(a), .minicta > *:not(.btn):not(a), .indexcard';
+    var kids = el.querySelectorAll(sel);
     kids.forEach(function (k, i) {
       if (reduce) return;
       k.classList.add('drop');
