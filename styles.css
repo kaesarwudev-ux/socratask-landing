@@ -152,6 +152,11 @@ body {
   outline-offset: 2px;
 }
 
+.beta .btn {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
 .topbar.scrolled .btn { padding: 9px 20px; font-size: 14px; }
 
 .brand {
