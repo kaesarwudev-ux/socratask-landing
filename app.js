@@ -16,6 +16,38 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // In-page links scroll their section to the centre, not the top.
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    });
+  });
+
+  // Active pill: highlight the section sitting in the middle of the screen.
+  var links = Array.prototype.slice.call(document.querySelectorAll('.topbar nav a'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href')] = a; });
+  if ('IntersectionObserver' in window) {
+    var sio = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          links.forEach(function (a) { a.classList.remove('on'); });
+          var a = byId['#' + e.target.id];
+          if (a) {
+            a.classList.add('on');
+            a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+          }
+        });
+      },
+      { rootMargin: '-42% 0px -42% 0px' }
+    );
+    document.querySelectorAll('main section[id]').forEach(function (s) { sio.observe(s); });
+  }
+
   var els = document.querySelectorAll('.feature, .beta .betacopy');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(
