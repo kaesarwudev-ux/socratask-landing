@@ -283,6 +283,25 @@ h1, h2 { line-height: 1.12; margin: 0 0 16px; text-wrap: balance; }
 
 .grade .good { background: var(--eco); color: #fff; }
 
+.mockcard.board { position: relative; overflow: hidden; }
+
+.stroke { display: block; width: 100%; height: auto; }
+
+.sticky {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  background: #fdf3c4;
+  border-radius: 3px 3px 10px 3px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 16px rgba(64, 70, 50, 0.16);
+  max-width: 130px;
+}
+
+.sticky.s1 { top: 16px; right: 18px; transform: rotate(3deg); }
+
+.sticky.s2 { bottom: 16px; left: 20px; transform: rotate(-2deg); background: #e8f0e2; }
+
 .chat .bubble {
   max-width: 85%;
   width: fit-content;
