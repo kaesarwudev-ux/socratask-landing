@@ -30,8 +30,8 @@
     nav.appendChild(hi);
     function moveHi(a) {
       if (!a || !a.offsetWidth) { hi.style.width = '0'; return; }
-      hi.style.left = a.offsetLeft + 'px';
-      hi.style.width = a.offsetWidth + 'px';
+      hi.style.left = (a.offsetLeft - 7) + 'px';
+      hi.style.width = (a.offsetWidth + 14) + 'px';
       hi.classList.remove('squash');
       void hi.offsetWidth;
       hi.classList.add('squash');
@@ -65,7 +65,7 @@
         },
         { rootMargin: '-42% 0px -42% 0px' }
       );
-      document.querySelectorAll('main section[id]').forEach(function (s) { sio.observe(s); });
+      document.querySelectorAll('main section[id], .hero').forEach(function (s) { sio.observe(s); });
     }
   })();
 

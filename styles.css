@@ -48,29 +48,36 @@ body {
   left: 0;
   right: 0;
   z-index: 10;
+}
+
+.bar-inner {
   display: flex;
   align-items: center;
   gap: 26px;
   padding: 14px 28px;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
-  transition: top 0.7s var(--ease), width 0.7s var(--ease), border-radius 0.7s var(--ease),
-    padding 0.7s var(--ease), box-shadow 0.7s var(--ease), background 0.7s var(--ease),
-    border-color 0.7s var(--ease), transform 0.7s var(--ease);
+  transition: width 0.5s var(--ease), margin 0.5s var(--ease), padding 0.5s var(--ease),
+    border-radius 0.5s var(--ease), box-shadow 0.5s var(--ease), background 0.5s var(--ease);
 }
 
-.topbar.scrolled {
-  top: 12px;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
+.topbar.scrolled { background: none; border: none; }
+
+.topbar.scrolled .bar-inner {
   width: max-content;
   max-width: calc(100% - 32px);
+  margin: 12px auto 0;
   padding: 8px 10px 8px 18px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-3);
+  animation: pillDrop 0.7s var(--ease);
+}
+
+@keyframes pillDrop {
+  from { transform: translateY(-140%); }
+  to { transform: none; }
 }
 
 .nico { width: 16px; height: 16px; flex-shrink: 0; }
@@ -109,9 +116,10 @@ body {
 
 .navhi {
   position: absolute;
-  top: 0;
+  top: 50%;
+  margin-top: -15px;
+  height: 30px;
   left: 0;
-  height: 100%;
   width: 0;
   background: var(--eco);
   border-radius: var(--radius-pill);
@@ -704,8 +712,9 @@ footer p { margin: 0 0 0 auto; }
   .drop { opacity: 1; transform: none; transition: none; }
   .typingbubble span, .fl, .chatlog .bubble { animation: none; }
   .questbar span { transition: none; }
-  .topbar, .topbar nav, .btn, .navhi { transition: none; }
+  .topbar, .topbar nav, .btn, .navhi, .bar-inner { transition: none; }
   .navhi.squash { animation: none; }
+  .topbar.scrolled .bar-inner { animation: none; }
 }
 
 /* ---------- small screens ---------- */
