@@ -158,11 +158,15 @@ body {
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
-  border-bottom: 2px solid var(--line);
-  padding-bottom: 2px;
+  padding-bottom: 3px;
+  background-image: linear-gradient(var(--eco), var(--eco)), linear-gradient(var(--line), var(--line));
+  background-size: 0% 2px, 100% 2px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.32s var(--ease), color 0.2s ease;
 }
 
-.ghostlink:hover { border-color: var(--eco); }
+.ghostlink:hover { color: var(--eco-deep); background-size: 100% 2px, 100% 2px; }
 
 /* ---------- hero (left aligned, no blob) ---------- */
 
