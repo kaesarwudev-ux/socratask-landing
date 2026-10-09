@@ -64,8 +64,9 @@ body {
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  width: min(1020px, calc(100% - 32px));
-  padding: 8px 10px 8px 16px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 8px 10px 8px 18px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
@@ -99,8 +100,8 @@ body {
 .topbar nav a.on { background: var(--eco); color: #fff; }
 
 .topbar.scrolled nav {
-  flex: 1;
-  min-width: 0;
+  flex: none;
+  max-width: calc(100vw - 300px);
   overflow-x: auto;
   scrollbar-width: none;
 }

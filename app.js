@@ -16,13 +16,34 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Active pill: current page, matched by path (clean URLs, no hashes).
+  // Single-page site: highlight the section in the middle of the screen,
+  // and scroll section links to the centre instead of the top.
   (function () {
-    var path = window.location.pathname.replace(/\/index\.html$/, '/');
-    document.querySelectorAll('.topbar nav a').forEach(function (a) {
-      var href = a.getAttribute('href');
-      if (href === path || (href !== '/' && path === href + '/')) a.classList.add('on');
+    var links = Array.prototype.slice.call(document.querySelectorAll('.topbar nav a'));
+    var byHash = {};
+    links.forEach(function (a) { byHash[a.getAttribute('href')] = a; });
+    Array.prototype.slice.call(document.querySelectorAll('.topbar nav a, .ghostlink')).forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      });
     });
+    if ('IntersectionObserver' in window) {
+      var sio = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            links.forEach(function (x) { x.classList.remove('on'); });
+            var a = byHash['#' + e.target.id];
+            if (a) a.classList.add('on');
+          });
+        },
+        { rootMargin: '-42% 0px -42% 0px' }
+      );
+      document.querySelectorAll('main section[id]').forEach(function (s) { sio.observe(s); });
+    }
   })();
 
   var els = document.querySelectorAll('.hero, .feature, .beta .betacopy, .indexsec, .minicta, .pager');
