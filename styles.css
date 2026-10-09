@@ -715,7 +715,7 @@ footer p { margin: 0 0 0 auto; }
   will-change: opacity, transform;
 }
 
-.drop.in { opacity: 1; transform: none; }
+.drop.in { opacity: 1; transform: none; transition: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -745,4 +745,14 @@ footer p { margin: 0 0 0 auto; }
   body { font-size: 16px; }
   .slots { gap: 5px; }
   .slot strong { display: none; }
+}
+
+/* ---------- small-laptop band (1151–1439px): full nav, compact density.
+   Below 1150 the nav hides; at 1920 nothing here matches. ---------- */
+@media (max-width: 1439px) and (min-width: 1151px) {
+  .bar-inner { gap: 14px; padding: 12px 20px; }
+  .wordmark { font-size: 19px; }
+  .topbar nav { gap: 2px; }
+  .topbar nav a { font-size: 13px; padding: 5px 9px; gap: 5px; }
+  .topbar .btn { padding: 9px 18px; font-size: 13px; flex-shrink: 0; }
 }
