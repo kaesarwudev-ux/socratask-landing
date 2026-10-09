@@ -16,45 +16,33 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // In-page links scroll their section to the centre, not the top.
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+  // Active pill: current page, matched by path (clean URLs, no hashes).
+  (function () {
+    var path = window.location.pathname.replace(/\/index\.html$/, '/');
+    document.querySelectorAll('.topbar nav a').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (href === path || (href !== '/' && path === href + '/')) a.classList.add('on');
     });
-  });
+  })();
 
-  // Active pill: highlight the section sitting in the middle of the screen.
-  var links = Array.prototype.slice.call(document.querySelectorAll('.topbar nav a'));
-  var byId = {};
-  links.forEach(function (a) { byId[a.getAttribute('href')] = a; });
-  if ('IntersectionObserver' in window) {
-    var sio = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          links.forEach(function (a) { a.classList.remove('on'); });
-          var a = byId['#' + e.target.id];
-          if (a) {
-            a.classList.add('on');
-            a.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-          }
-        });
-      },
-      { rootMargin: '-42% 0px -42% 0px' }
+  var els = document.querySelectorAll('.hero, .feature, .beta .betacopy, .indexsec, .minicta, .pager');
+  function dropKids(el) {
+    var kids = el.querySelectorAll(
+      '.herocopy > *, .heromock > *, .fcopy > *, .fmock > *, .betacopy > *, .minicta > *, .indexcard'
     );
-    document.querySelectorAll('main section[id]').forEach(function (s) { sio.observe(s); });
+    kids.forEach(function (k, i) {
+      if (reduce) return;
+      k.classList.add('drop');
+      setTimeout(function () { k.classList.add('in'); }, 90 * Math.min(i, 8));
+    });
   }
-
-  var els = document.querySelectorAll('.feature, .beta .betacopy');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (e) {
           if (e.isIntersecting) {
             e.target.classList.add('in');
+            dropKids(e.target);
             io.unobserve(e.target);
           }
         });
@@ -69,6 +57,7 @@
     setTimeout(function () {
       document.querySelectorAll('.reveal').forEach(function (el) {
         el.classList.add('in');
+        el.querySelectorAll('.drop').forEach(function (k) { k.classList.add('in'); });
       });
     }, 2500);
   }

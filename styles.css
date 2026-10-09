@@ -64,12 +64,22 @@ body {
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  width: min(920px, calc(100% - 32px));
-  padding: 8px 10px 8px 18px;
+  width: min(1020px, calc(100% - 32px));
+  padding: 8px 10px 8px 16px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-3);
+}
+
+.nico { width: 16px; height: 16px; flex-shrink: 0; }
+
+.topbar nav a .nico { width: 15px; height: 15px; }
+
+.topbar nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .topbar nav { display: flex; gap: 4px; align-items: center; }
@@ -499,6 +509,94 @@ h1, h2 { line-height: 1.12; margin: 0 0 16px; text-wrap: balance; }
 
 .grade span.sel { outline: 2px solid var(--eco-deep); }
 
+/* ---------- home index grid ---------- */
+
+.indexsec { max-width: 1120px; margin: 0 auto; padding: 56px 28px; border-top: 1px solid var(--line); }
+
+.indexsec h2 { font-size: clamp(26px, 3vw, 36px); }
+
+.indexgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+
+.indexcard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease);
+}
+
+.indexcard:hover { transform: translateY(-3px); box-shadow: var(--shadow-3); }
+
+.itile {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  flex-shrink: 0;
+  background: var(--row-tint);
+  color: var(--eco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itile .nico { width: 22px; height: 22px; }
+
+.itxt { display: flex; flex-direction: column; min-width: 0; }
+
+.itxt strong { font-size: 16px; }
+
+.itxt small { color: var(--ink-soft); font-size: 13px; }
+
+.indexcard .go { margin-left: auto; color: var(--ink-soft); font-weight: 800; }
+
+/* ---------- feature pages: pager + compact cta ---------- */
+
+.feature.solo { padding-top: 44px; }
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 28px 8px;
+}
+
+.pager a {
+  color: var(--eco-deep);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: var(--radius-pill);
+  padding: 9px 20px;
+}
+
+.pager a:hover { border-color: var(--eco); }
+
+.minicta {
+  max-width: 1120px;
+  margin: 24px auto 0;
+  padding: 34px 28px 64px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+}
+
+.minicta p { margin: 0; font-size: 17px; }
+
+@media (max-width: 860px) {
+  .indexgrid { grid-template-columns: 1fr; }
+}
+
 /* ---------- beta band (solid eco, no gradient) ---------- */
 
 .beta {
@@ -543,15 +641,25 @@ footer {
 
 footer p { margin: 0 0 0 auto; }
 
-/* ---------- scroll reveal (subtle, off with reduced motion) ---------- */
+/* ---------- scroll choreography: elements drop in from above ---------- */
 
-.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
+.reveal.in { opacity: 1; }
 
-.reveal.in { opacity: 1; transform: none; }
+.drop {
+  opacity: 0;
+  transform: translateY(-46px);
+  transition:
+    opacity 0.55s var(--ease),
+    transform 0.62s cubic-bezier(0.2, 0.85, 0.3, 1.04);
+  will-change: opacity, transform;
+}
+
+.drop.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .drop { opacity: 1; transform: none; transition: none; }
   .typingbubble span, .fl, .chatlog .bubble { animation: none; }
   .questbar span { transition: none; }
   .topbar, .topbar nav { transition: none; }
