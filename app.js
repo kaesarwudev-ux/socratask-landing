@@ -22,6 +22,26 @@
     var links = Array.prototype.slice.call(document.querySelectorAll('.topbar nav a'));
     var byHash = {};
     links.forEach(function (a) { byHash[a.getAttribute('href')] = a; });
+    // Sliding highlight: glides to the active link with a squash.
+    var nav = document.querySelector('.topbar nav');
+    var hi = document.createElement('span');
+    hi.className = 'navhi';
+    hi.style.width = '0';
+    nav.appendChild(hi);
+    function moveHi(a) {
+      if (!a || !a.offsetWidth) { hi.style.width = '0'; return; }
+      hi.style.left = a.offsetLeft + 'px';
+      hi.style.width = a.offsetWidth + 'px';
+      hi.classList.remove('squash');
+      void hi.offsetWidth;
+      hi.classList.add('squash');
+    }
+    window.addEventListener('resize', function () {
+      moveHi(document.querySelector('.topbar nav a.on'));
+    });
+    window.addEventListener('load', function () {
+      moveHi(document.querySelector('.topbar nav a.on'));
+    });
     Array.prototype.slice.call(document.querySelectorAll('.topbar nav a, .ghostlink')).forEach(function (a) {
       a.addEventListener('click', function (e) {
         var target = document.querySelector(a.getAttribute('href'));
@@ -37,7 +57,10 @@
             if (!e.isIntersecting) return;
             links.forEach(function (x) { x.classList.remove('on'); });
             var a = byHash['#' + e.target.id];
-            if (a) a.classList.add('on');
+            if (a) {
+              a.classList.add('on');
+              moveHi(a);
+            }
           });
         },
         { rootMargin: '-42% 0px -42% 0px' }
