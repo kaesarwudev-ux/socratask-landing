@@ -2,6 +2,20 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Top bar contracts into a floating pill on scroll.
+  var bar = document.querySelector('.topbar');
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      bar.classList.toggle('scrolled', window.scrollY > 48);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   var els = document.querySelectorAll('.feature, .beta .betacopy');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(

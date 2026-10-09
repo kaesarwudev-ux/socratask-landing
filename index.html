@@ -18,10 +18,14 @@
       <strong class="wordmark">SocraTask</strong>
     </a>
     <nav>
-      <a href="#streaks">Streaks</a>
+      <a href="#dashboard">Dashboard</a>
       <a href="#space">Whiteboard</a>
-      <a href="#study">Flashcards</a>
       <a href="#tasks">Tasks</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#notes">Notes</a>
+      <a href="#habits">Habits</a>
+      <a href="#academy">Academy</a>
+      <a href="#friends">Friends</a>
       <a href="#chat">Chat</a>
     </nav>
     <a class="btn" href="https://forms.gle/aXmjPg46gSRuJzB48" target="_blank" rel="noopener">Join the beta</a>
@@ -33,13 +37,13 @@
         <p class="kicker">SocraTask · private beta</p>
         <h1>Study every day.<br />With your people.</h1>
         <p class="lede">
-          SocraTask turns daily practice into something you keep together.
-          Flashcards that schedule themselves. Friend streaks that only
-          survive if <em>both</em> of you show up.
+          Tasks, calendar, habits, flashcards, an infinite whiteboard,
+          and friend streaks that only survive if <em>both</em> of you
+          show up. One calm app for the whole routine.
         </p>
         <div class="ctas">
           <a class="btn big" href="https://forms.gle/aXmjPg46gSRuJzB48" target="_blank" rel="noopener">Join the beta</a>
-          <a class="ghostlink" href="#streaks">See how it works ↓</a>
+          <a class="ghostlink" href="#dashboard">See how it works ↓</a>
         </div>
       </div>
       <div class="heromock" aria-hidden="true">
@@ -57,27 +61,27 @@
       </div>
     </section>
 
-    <section class="feature" id="streaks">
+
+
+
+    <section class="feature" id="dashboard">
       <div class="fcopy">
-        <p class="kicker">Friend streaks</p>
-        <h2>Your streak has a buddy now.</h2>
+        <p class="kicker">Dashboard</p>
+        <h2>Your day at a glance.</h2>
         <p>
-          Slot up to five friends into your streak board. Your own streak needs
-          just you. A friend streak needs both of you, every single day.
-          Miss a day and the chain breaks. Keep showing up, and you collect
-          stars at 7, 30, 100 and 365 days.
+          Due tasks, today's events and habit progress in one greeting.
+          The week trend shows XP and accuracy climbing. Memory stats
+          tell you how well reviews stick.
         </p>
       </div>
       <div class="fmock" aria-hidden="true">
         <div class="mockcard narrow">
-          <p class="mockhead">This week</p>
-          <div class="questbar"><span data-w="64"></span></div>
-          <p class="mockfoot">Crew quest · <span data-count="320">0</span>/500 XP</p>
-          <ul class="board">
-            <li><span class="ava">M</span> Maya <span class="xp">310 XP</span></li>
-            <li><span class="ava you">Y</span> You <span class="xp">240 XP</span></li>
-            <li><span class="ava">L</span> Leo <span class="xp">120 XP</span></li>
-          </ul>
+          <p class="mockhead">Good evening.</p>
+          <div class="pills"><span>3 due</span><span>2 events</span><span>4/7 habits</span></div>
+          <div class="trend">
+            <i style="height: 30%"></i><i style="height: 55%"></i><i style="height: 42%"></i><i style="height: 70%"></i><i style="height: 64%"></i><i style="height: 88%"></i><i style="height: 100%"></i>
+          </div>
+          <p class="mockfoot">Week XP <strong data-count="940">0</strong> · accuracy 86%</p>
         </div>
       </div>
     </section>
@@ -106,27 +110,7 @@
       </div>
     </section>
 
-    <section class="feature" id="study">
-      <div class="fcopy">
-        <p class="kicker">Flashcards</p>
-        <h2>Cards that schedule themselves.</h2>
-        <p>
-          Reviews are spaced by a real memory model, not a fixed queue.
-          Typing, multiple choice, or classic flip. Every correct answer
-          keeps your streak and your crew's week alive.
-        </p>
-      </div>
-      <div class="fmock" aria-hidden="true">
-        <div class="mockcard narrow flash">
-          <p class="mockhead">Due now · Biology 201</p>
-          <p class="cardq">Which organelle produces most of the cell's ATP?</p>
-          <div class="opts"><span>Mitochondrion</span><span>Ribosome</span></div>
-          <div class="grade"><span>Again</span><span>Hard</span><span class="good">Good</span><span>Easy</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="feature flip" id="tasks">
+    <section class="feature" id="tasks">
       <div class="fcopy">
         <p class="kicker">Tasks</p>
         <h2>Capture it in seconds.</h2>
@@ -147,7 +131,7 @@
       </div>
     </section>
 
-    <section class="feature" id="calendar">
+    <section class="feature flip" id="calendar">
       <div class="fcopy">
         <p class="kicker">Calendar</p>
         <h2>Your week, in sync.</h2>
@@ -170,7 +154,7 @@
       </div>
     </section>
 
-    <section class="feature flip" id="habits">
+    <section class="feature" id="habits">
       <div class="fcopy">
         <p class="kicker">Habits</p>
         <h2>Small habits, daily proof.</h2>
@@ -188,7 +172,7 @@
       </div>
     </section>
 
-    <section class="feature" id="notes">
+    <section class="feature flip" id="notes">
       <div class="fcopy">
         <p class="kicker">Sticky notes</p>
         <h2>Fast thoughts have a home.</h2>
@@ -206,7 +190,52 @@
       </div>
     </section>
 
-    <section class="feature flip" id="chat">
+    <section class="feature" id="academy">
+      <div class="fcopy">
+        <p class="kicker">Academy</p>
+        <h2>Cards that schedule themselves.</h2>
+        <p>
+          Reviews are spaced by a real memory model, not a fixed queue.
+          Typing, multiple choice, or classic flip. Every correct answer
+          keeps your streak and your crew's week alive.
+        </p>
+      </div>
+      <div class="fmock" aria-hidden="true">
+        <div class="mockcard narrow flash">
+          <p class="mockhead">Due now · Biology 201</p>
+          <p class="cardq">Which organelle produces most of the cell's ATP?</p>
+          <div class="opts"><span>Mitochondrion</span><span>Ribosome</span></div>
+          <div class="grade"><span>Again</span><span>Hard</span><span class="good">Good</span><span>Easy</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature flip" id="friends">
+      <div class="fcopy">
+        <p class="kicker">Friend streaks</p>
+        <h2>Your streak has a buddy now.</h2>
+        <p>
+          Slot up to five friends into your streak board. Your own streak needs
+          just you. A friend streak needs both of you, every single day.
+          Miss a day and the chain breaks. Keep showing up, and you collect
+          stars at 7, 30, 100 and 365 days. A weekly leaderboard and a shared crew quest keep the whole group honest.
+        </p>
+      </div>
+      <div class="fmock" aria-hidden="true">
+        <div class="mockcard narrow">
+          <p class="mockhead">This week</p>
+          <div class="questbar"><span data-w="64"></span></div>
+          <p class="mockfoot">Crew quest · <span data-count="320">0</span>/500 XP</p>
+          <ul class="board">
+            <li><span class="ava">M</span> Maya <span class="xp">310 XP</span></li>
+            <li><span class="ava you">Y</span> You <span class="xp">240 XP</span></li>
+            <li><span class="ava">L</span> Leo <span class="xp">120 XP</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="chat">
       <div class="fcopy">
         <p class="kicker">Chat and sharing</p>
         <h2>Talk where you study.</h2>
