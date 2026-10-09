@@ -320,6 +320,108 @@ h1, h2 { line-height: 1.12; margin: 0 0 16px; text-wrap: balance; }
   margin-left: auto;
 }
 
+/* ---------- tasks mock ---------- */
+
+.todos { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+.todos li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
+
+.todos li.done { color: var(--ink-soft); text-decoration: line-through; }
+
+.tick {
+  width: 20px; height: 20px; border-radius: 7px; flex-shrink: 0;
+  border: 1.5px solid var(--line);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 13px; color: #fff;
+}
+
+.todos li.done .tick { background: var(--eco); border-color: var(--eco); }
+
+/* ---------- calendar mock ---------- */
+
+.calweek {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+  font-size: 11px; font-weight: 800; color: var(--ink-soft); text-align: center;
+  margin-bottom: 10px;
+}
+
+.evs { display: flex; flex-direction: column; gap: 6px; }
+
+.ev { font-size: 13px; font-weight: 700; border-radius: 9px; padding: 7px 10px; }
+
+.ev.green { background: #e2ecdd; color: var(--eco-deep); }
+
+.ev.amber { background: #f7ead0; color: #8a5a00; }
+
+/* ---------- habits mock ---------- */
+
+.habit { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; font-weight: 600; padding: 7px 0; }
+
+.dots { display: flex; gap: 4px; }
+
+.dots i { width: 11px; height: 11px; border-radius: 4px; background: #eee7d3; }
+
+.dots i.on { background: var(--eco); }
+
+/* ---------- notes mock ---------- */
+
+.notegrid { display: flex; gap: 12px; flex-wrap: wrap; max-width: 360px; }
+
+.sticky.static { position: static; transform: rotate(-1.5deg); }
+
+.sticky.static.green { transform: rotate(2deg); }
+
+/* ---------- live chat demo ---------- */
+
+.chatlog { display: flex; flex-direction: column; }
+
+.chatlog .bubble { animation: pop 0.25s ease; }
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
+.chattyping { display: none; margin: 0 0 8px; }
+
+.chattyping.show { display: inline-flex; }
+
+.typingbubble {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #f1ebdb; border-radius: 16px 16px 16px 4px; padding: 12px 15px;
+}
+
+.typingbubble span {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--ink-soft);
+  animation: tbounce 1.2s infinite;
+}
+
+.typingbubble span:nth-child(2) { animation-delay: 0.15s; }
+.typingbubble span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes tbounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ---------- flame flicker + quest fill ---------- */
+
+.fl { transform-origin: center; animation: flick 3.2s ease-in-out infinite; }
+
+@keyframes flick {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.12); opacity: 0.85; }
+}
+
+.questbar span { width: 0; transition: width 1.2s ease; }
+
+.opts span { cursor: pointer; }
+
+.opts span.sel { border-color: var(--eco); background: #e2ecdd; }
+
+.grade span { cursor: pointer; }
+
+.grade span.sel { outline: 2px solid var(--eco-deep); }
+
 /* ---------- beta band (solid eco, no gradient) ---------- */
 
 .beta {
@@ -373,6 +475,8 @@ footer p { margin: 0 0 0 auto; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .typingbubble span, .fl, .chatlog .bubble { animation: none; }
+  .questbar span { transition: none; }
 }
 
 /* ---------- small screens ---------- */

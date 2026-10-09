@@ -21,7 +21,8 @@
       <a href="#streaks">Streaks</a>
       <a href="#space">Whiteboard</a>
       <a href="#study">Flashcards</a>
-      <a href="#together">Routine</a>
+      <a href="#tasks">Tasks</a>
+      <a href="#chat">Chat</a>
     </nav>
     <a class="btn" href="https://forms.gle/aXmjPg46gSRuJzB48" target="_blank" rel="noopener">Join the beta</a>
   </header>
@@ -51,7 +52,7 @@
             <div class="slot"><span class="empty">Empty</span></div>
             <div class="slot"><span class="empty">Empty</span></div>
           </div>
-          <p class="mockfoot">Joint days <strong>19</strong> · 2 alive today</p>
+          <p class="mockfoot">Joint days <strong data-count="19">0</strong> · 2 alive today</p>
         </div>
       </div>
     </section>
@@ -70,8 +71,8 @@
       <div class="fmock" aria-hidden="true">
         <div class="mockcard narrow">
           <p class="mockhead">This week</p>
-          <div class="questbar"><span style="width: 64%"></span></div>
-          <p class="mockfoot">Crew quest · 320/500 XP</p>
+          <div class="questbar"><span data-w="64"></span></div>
+          <p class="mockfoot">Crew quest · <span data-count="320">0</span>/500 XP</p>
           <ul class="board">
             <li><span class="ava">M</span> Maya <span class="xp">310 XP</span></li>
             <li><span class="ava you">Y</span> You <span class="xp">240 XP</span></li>
@@ -125,21 +126,100 @@
       </div>
     </section>
 
-    <section class="feature flip" id="together">
+    <section class="feature flip" id="tasks">
       <div class="fcopy">
-        <p class="kicker">Shared rhythms</p>
-        <h2>One place for the whole routine.</h2>
+        <p class="kicker">Tasks</p>
+        <h2>Capture it in seconds.</h2>
         <p>
-          Tasks, calendar, habits, notes and chat sit next to your studying.
-          Send a friend your deck. Nudge them before midnight.
-          Watch the week fill in together.
+          Type it, set a due date, get on with your day. The Today view
+          shows only what is due now. Finished tasks stay out of your way.
         </p>
       </div>
       <div class="fmock" aria-hidden="true">
-        <div class="mockcard narrow chat">
-          <p class="bubble them">did you review yet?</p>
-          <p class="bubble me">just finished — your turn</p>
-          <p class="bubble them">on it, streak saved</p>
+        <div class="mockcard narrow">
+          <p class="mockhead">Today · 2 due</p>
+          <ul class="todos">
+            <li class="done"><span class="tick">✓</span> Send Maya the deck</li>
+            <li><span class="tick"></span> Review Biology 201</li>
+            <li><span class="tick"></span> Run 5k</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="calendar">
+      <div class="fcopy">
+        <p class="kicker">Calendar</p>
+        <h2>Your week, in sync.</h2>
+        <p>
+          Two-way sync with Google Calendar. Recurring events and all-day
+          blocks work. A now line shows where you are in the day.
+        </p>
+      </div>
+      <div class="fmock" aria-hidden="true">
+        <div class="mockcard narrow">
+          <p class="mockhead">This week</p>
+          <div class="calweek">
+            <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+          </div>
+          <div class="evs">
+            <span class="ev green">Study block · Tue 4pm</span>
+            <span class="ev amber">Exam · Fri 9am</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature flip" id="habits">
+      <div class="fcopy">
+        <p class="kicker">Habits</p>
+        <h2>Small habits, daily proof.</h2>
+        <p>
+          Pick a habit. Check in each day. Each one grows its own chain,
+          and you can see the whole week at a glance.
+        </p>
+      </div>
+      <div class="fmock" aria-hidden="true">
+        <div class="mockcard narrow">
+          <p class="mockhead">Habits today</p>
+          <div class="habit"><span>Read 20 min</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="habit"><span>Run</span><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="notes">
+      <div class="fcopy">
+        <p class="kicker">Sticky notes</p>
+        <h2>Fast thoughts have a home.</h2>
+        <p>
+          Pin a note to the board in seconds. No folders. No titles required.
+          Just the thought, where you can see it.
+        </p>
+      </div>
+      <div class="fmock" aria-hidden="true">
+        <div class="notegrid">
+          <span class="sticky static">essay hook??</span>
+          <span class="sticky static green">ask Leo for notes</span>
+          <span class="sticky static">milk, eggs</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature flip" id="chat">
+      <div class="fcopy">
+        <p class="kicker">Chat and sharing</p>
+        <h2>Talk where you study.</h2>
+        <p>
+          Direct messages and groups with the people in your streak board.
+          Reactions, replies, attachments, typing indicators and seen receipts.
+          Send a deck or a board to a friend without leaving the app.
+        </p>
+      </div>
+      <div class="fmock" aria-hidden="true">
+        <div class="mockcard narrow chat" id="chatdemo">
+          <div class="chatlog"></div>
+          <div class="typingbubble chattyping"><span></span><span></span><span></span></div>
         </div>
       </div>
     </section>
